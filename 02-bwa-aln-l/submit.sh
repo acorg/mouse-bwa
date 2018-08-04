@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 #SBATCH -J bwa-aln-l
-#SBATCH -A DSMITH-SL3-CPU
+#SBATCH -A ACORG-SL2-CPU
 #SBATCH -o slurm-%A.out
 #SBATCH -p skylake
 #SBATCH --time=01:00:00
