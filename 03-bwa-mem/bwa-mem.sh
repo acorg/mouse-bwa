@@ -4,7 +4,7 @@
 
 task=$1
 log=$logDir/$task.log
-fastq=$(taskToMappedFastq $task)
+fastq=$(taskToMappedFastq $task $log)
 out=$task-$genomeSpecies.fastq.gz
 
 logStepStart $log

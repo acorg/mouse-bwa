@@ -41,8 +41,8 @@ tasks=$(tasksForSample)
 
 for task in $tasks
 do
+    fastq=$(taskToMappedFastq $task $log)
     echo "  Task $task will use FASTQ $fastq" >> $log
-    fastq=$dataDir/$task.trim.fastq.gz
     checkFastq $fastq $log
 done
 

@@ -97,9 +97,17 @@ function tasksForSample()
 function taskToMappedFastq()
 {
     local task=$1
+    local log=$2
     local sample=$(sampleName)
+    local dir="/rds/project/djs200/rds-djs200-acorg/bt/projects/eske/bronze/pipelines/initial/$sample/02-map/"
 
-    echo "/rds/project/djs200/rds-djs200-acorg/bt/projects/eske/bronze/pipelines/initial/$sample/02-map/$task-unmapped.fastq.gz"
+    if [ ! -d $root ]
+    then
+        echo "  Mapped data directory '$dir' does not exist." >> $log
+        exit 1
+    fi
+
+    echo "$dir/$task-unmapped.fastq.gz"
 }
 
 function logStepStart()
