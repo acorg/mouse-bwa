@@ -83,7 +83,7 @@ function tasksForSample()
     # contain the FASTQ file location followed by a space and then the
     # sample name (which is why we have a .* at the end of the sed - to
     # also remove the sample name).
-    tasks=$(egrep " $sample\$" $sequencingToSample | sed -e 's/\.trim\.fastq\.gz.*//')
+    tasks=$(egrep " $sample\$" $sequencingToSample | cut -f1 -d' ')
 
     if [ -z "$tasks" ]
     then
@@ -99,7 +99,7 @@ function taskToMappedFastq()
     local task=$1
     local log=$2
     local sample=$(sampleName)
-    local dir="/rds/project/djs200/rds-djs200-acorg/bt/projects/eske/bronze/pipelines/initial/$sample/02-map/"
+    local dir="/rds/project/djs200/rds-djs200-acorg/bt/projects/eske/bronze/pipelines/initial/$sample/02-map"
 
     if [ ! -d $root ]
     then
